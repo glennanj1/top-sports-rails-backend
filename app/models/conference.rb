@@ -1,7 +1,8 @@
 class Conference < ApplicationRecord
-    def self.scraper 
+    def self.scraper(league)
 
-        url = URI("https://sportspage-feeds.p.rapidapi.com/conferences?league=NBA")
+        url = URI("https://sportspage-feeds.p.rapidapi.com/conferences?league=#{league.to_s}")
+        binding.pry
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -14,7 +15,11 @@ class Conference < ApplicationRecord
         response = http.request(request)
         data = response.read_body
 
-        binding.pry
-        Conference.new(data)
+        j.map do |x|
+            c = x['conference']
+            d = x['division']
+            l = x['league']
+            Conference.create(division: d, league: l, conference: c)
+        end  
     end
 end
