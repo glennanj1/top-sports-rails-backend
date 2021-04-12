@@ -1,6 +1,6 @@
 class ConferencesController < ApplicationController
     def index
         conferences = Conference.all 
-        render json: conferences
+        render json: ConferenceSerializer.new(conferences)
     end
 end
