@@ -1,8 +1,11 @@
 class Conference < ApplicationRecord
+
+    validates :division, uniqueness: true
+
+
     def self.scraper(league)
 
-        url = URI("https://sportspage-feeds.p.rapidapi.com/conferences?league=#{league.to_s}")
-        binding.pry
+        url = URI("https://sportspage-feeds.p.rapidapi.com/conferences?league=#{league}")
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -14,6 +17,9 @@ class Conference < ApplicationRecord
 
         response = http.request(request)
         data = response.read_body
+
+
+        j = JSON[data]['results']
 
         j.map do |x|
             c = x['conference']
