@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 2021_04_12_212850) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conferences", force: :cascade do |t|
-    t.string "league"
-    t.string "conference"
-    t.string "division"
+  create_table "sports", force: :cascade do |t|
+    t.string "key"
+    t.boolean "active"
+    t.string "group"
+    t.string "details"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
