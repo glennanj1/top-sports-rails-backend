@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
     def index
-        game = Game.all 
+        s = Sport.find_by(params[:id])
+        Game.scraper(s.key, s.id)
+        games = Game.where("sport_id = ?", params[:sport_id])
         render json: GameSerializer.new(games)
     end
+
 end
