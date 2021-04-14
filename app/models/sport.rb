@@ -1,6 +1,7 @@
 class Sport < ApplicationRecord
 
     validates :key, uniqueness: true
+    has_many :games
 
 
     def self.scraper
@@ -17,11 +18,9 @@ class Sport < ApplicationRecord
 
         response = http.request(request)
         data = response.read_body
-        binding.pry
-
-
+    
         j = JSON[data]['data']
-
+        binding.pry
         j.map do |x|
             k = x['key']
             a = x['active']
