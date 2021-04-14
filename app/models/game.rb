@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :sport
+  has_many :bets
 
   validates :commence_time, uniqueness: true
 
