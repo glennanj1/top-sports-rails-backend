@@ -1,5 +1,8 @@
 class Game < ApplicationRecord
   belongs_to :sport
+
+  validates :commence_time, uniqueness: true
+
   def self.scraper(key, id)
     url = URI("https://odds.p.rapidapi.com/v1/odds?sport=#{key}&region=us&mkt=h2h&dateFormat=iso&oddsFormat=american")
 
