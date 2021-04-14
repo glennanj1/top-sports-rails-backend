@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bets
+
   resources :sports, only: [:index] do 
     resources :games, shallow: true
   end
