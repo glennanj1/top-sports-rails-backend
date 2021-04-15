@@ -20,7 +20,6 @@ class Sport < ApplicationRecord
         data = response.read_body
     
         j = JSON[data]['data']
-        binding.pry
         j.map do |x|
             k = x['key']
             a = x['active']
