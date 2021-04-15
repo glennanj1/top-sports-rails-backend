@@ -5,7 +5,7 @@ class CreateGames < ActiveRecord::Migration[6.1]
       t.string :teams
       t.string :home_team
       t.datetime :commence_time
-      t.string :sites
+      t.json :sites
       t.references :sport, null: false, foreign_key: true
 
       t.timestamps

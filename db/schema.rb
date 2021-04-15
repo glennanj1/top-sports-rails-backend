@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_04_14_203001) do
     t.string "teams"
     t.string "home_team"
     t.datetime "commence_time"
-    t.string "sites"
+    t.json "sites"
     t.bigint "sport_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
