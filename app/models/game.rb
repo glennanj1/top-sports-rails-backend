@@ -2,7 +2,7 @@ class Game < ApplicationRecord
   belongs_to :sport
   has_many :bets
 
-  validates :commence_time, uniqueness: true
+  validates :teams, uniqueness: true
 
   def self.scraper(key, id)
     url = URI("https://odds.p.rapidapi.com/v1/odds?sport=#{key}&region=us&mkt=h2h&dateFormat=iso&oddsFormat=american")
@@ -18,6 +18,7 @@ class Game < ApplicationRecord
     response = http.request(request)
   
     data = response.read_body
+   
     j = JSON[data]['data']
 
     j.map do |x|
@@ -27,6 +28,7 @@ class Game < ApplicationRecord
       ct = x['commence_time']
       s = x['sites']
       g = Game.new(sport_nice: sn, teams: t, home_team: ht, commence_time: ct, sites: s, sport_id: id)
+      
       g.save
     end
   end
