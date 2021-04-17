@@ -26,9 +26,10 @@ class Game < ApplicationRecord
       t = "#{x['teams'][0]} vs. #{x['teams'][1]}"
       ht = x['home_team']
       ct = x['commence_time']
-      s = x['sites']
-      g = Game.new(sport_nice: sn, teams: t, home_team: ht, commence_time: ct, sites: s, sport_id: id)
-      
+      s = x['sites'][0]['site_nice']
+      o1 = x['sites'][0]['odds']['h2h'][0]
+      o2 = x['sites'][0]['odds']['h2h'][1]
+      g = Game.new(sport_nice: sn, teams: t, home_team: ht, commence_time: ct, sites: s, odds: o1, odds1: o2, sport_id: id)
       g.save
     end
   end
