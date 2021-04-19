@@ -1,6 +1,7 @@
 class BetsController < ApplicationController
     def index 
-        binding.pry
+        bets = Bet.all
+        render json: BetSerializer.new(bets)
     end
 
     def create
