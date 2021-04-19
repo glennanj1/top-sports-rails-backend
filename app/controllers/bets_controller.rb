@@ -5,7 +5,6 @@ class BetsController < ApplicationController
 
     def create
         bet = Bet.new(bet_params)
-        binding.pry
         #bet.game = Game ??
         if bet.save 
             render json: BetSerializer.new(bet)
@@ -17,6 +16,6 @@ class BetsController < ApplicationController
     private 
 
     def bet_params 
-        params.require(:bet).permit(:amount, :date, :odds)
+        params.require(:bet).permit(:amount, :date, :odds, :game_id)
     end
 end
