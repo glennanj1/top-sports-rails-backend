@@ -24,12 +24,15 @@ class Game < ApplicationRecord
     j.map do |x|
       sn = x['sport_nice']
       t = "#{x['teams'][0]} vs. #{x['teams'][1]}"
+      t1 = x['teams'][0]
+      t2 = x['teams'][1]
       ht = x['home_team']
       ct = x['commence_time']
       s = x['sites'][0]['site_nice']
       o1 = x['sites'][0]['odds']['h2h'][0]
       o2 = x['sites'][0]['odds']['h2h'][1]
-      g = Game.new(sport_nice: sn, teams: t, home_team: ht, commence_time: ct, sites: s, odds: o1, odds1: o2, sport_id: id)
+      g = Game.new(sport_nice: sn, teams: t, home_team: ht, commence_time: ct, sites: s, odds: o1, odds1: o2, sport_id: id, team_1: t1, team_2: t2)
+      
       g.save
     end
   end
