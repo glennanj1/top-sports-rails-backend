@@ -5,7 +5,6 @@ class Sport < ApplicationRecord
 
 
     def self.scraper
-        binding.pry
 
         url = URI("https://odds.p.rapidapi.com/v1/sports")
 
@@ -19,6 +18,8 @@ class Sport < ApplicationRecord
 
         response = http.request(request)
         data = response.read_body
+
+        binding.pry
     
         j = JSON[data]['data']
         j.map do |x|
