@@ -18,8 +18,6 @@ class Sport < ApplicationRecord
 
         response = http.request(request)
         data = response.read_body
-
-        binding.pry
     
         j = JSON[data]['data']
         j.map do |x|
