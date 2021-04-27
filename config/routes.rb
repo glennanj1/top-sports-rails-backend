@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'sports#index'
+  
   resources :bets
 
   resources :sports, only: [:index] do 
