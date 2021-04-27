@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins 'https://jolly-davinci-edd6d5.netlify.app'
     #change before deploying
 
     resource '*',
