@@ -5,6 +5,7 @@ class Sport < ApplicationRecord
 
 
     def self.scraper
+        binding.pry
 
         url = URI("https://odds.p.rapidapi.com/v1/sports")
 
