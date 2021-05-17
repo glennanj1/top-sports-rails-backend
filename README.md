@@ -2,17 +2,17 @@
 
 
 # Top Sports Book Backend
-Personal bet tracking app that focuses on speed and convienence with no page rendering (SPA)
+This is the backend to the Javascript SPA. This repo feeds a vanilla Javascript front end sports data. Utilizes fast json gem to quickly render json to the front end. 
 
 # Install Instructions
-First clone the file from github. Then cd into the root directory After that run bundle install then run rails db:migrate then start up rails server with rails s.
+First clone the file from github. Then cd into the root directory. After that run `bundle install` then run rails db:migrate then start up rails server with rails s.
 
 # Contributers Guide
 Feel free to contribute to this project.
 
 # Ruby Version
 
-Ruby version ~> 2.6.1
+Ruby version ~> 2.7.3
 
 # License
 Copyright 2021 John Glennan
